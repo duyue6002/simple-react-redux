@@ -45,7 +45,6 @@ export function connect(mapStateToProps, mapDispatchToProps) {
       const dispatchToUse = (action) => {
         store.dispatch(action);
       };
-
       const initialStateProps = mapStateToProps
         ? mapStateToProps(store.getState(), props)
         : {};
