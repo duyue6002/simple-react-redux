@@ -1,7 +1,6 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { ReactReduxContext } from "react-redux";
 
-// const ReactReduxContext = React.createContext(null);
+const ReactReduxContext = React.createContext(null);
 
 /**
  * Provider 函数组件
@@ -59,11 +58,11 @@ export function connect(mapStateToProps, mapDispatchToProps) {
         initialDispatchProps,
         props
       );
-      const [useProps, setState] = useState(initialMergeProps);
+      const [actualProps, setState] = useState(initialMergeProps);
       useEffect(() => {
         listen({ store, props, dispatchToUse, setState });
       });
-      return <WrappedComponent {...useProps} />;
+      return <WrappedComponent {...actualProps} />;
     };
   };
 }
